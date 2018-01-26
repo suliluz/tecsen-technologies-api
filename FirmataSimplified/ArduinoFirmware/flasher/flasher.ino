@@ -47,6 +47,16 @@ void systemResetCallback()
   firmataExt.reset();
 }
 
+void sysexCallback(byte command, byte argc, byte *argv)
+{
+  Firmata.sendSysex(command, argc, argv);
+}
+
+void stringCallback()
+{
+  Firmata.sendString("Arduino has received the input successfully");
+}
+
 void initTransport()
 {
   // Uncomment to save a couple of seconds by disabling the startup blink sequence.
@@ -68,6 +78,8 @@ void initFirmata()
   firmataExt.addFeature(reporting);
 
   Firmata.attach(SYSTEM_RESET, systemResetCallback);
+  Firmata.attach(STRING_DATA, stringCallback);
+  Firmata.attach(START_SYSEX, sysexCallback);
 }
 
 void setup()
@@ -85,6 +97,7 @@ void loop()
 
   while(Firmata.available()) {
     Firmata.processInput();
+    
   }
   
   if (reporting.elapsed()) {
