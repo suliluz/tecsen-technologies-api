@@ -1,5 +1,5 @@
 # tecsen-arduino
-Arduino Application Programming Interface. Property of Tecsen Technologies Sdn Bhd.
+Arduino Application Programming Interface(API). Property of Tecsen Technologies Sdn Bhd.
 
 # Contents
 **SimplifiedFirmata** - Currently being maintained.
