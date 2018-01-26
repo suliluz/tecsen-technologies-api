@@ -7,16 +7,6 @@ namespace ArduinoWorker
 {
     public class PinWorker
     {
-        #region Reference
-        /// <summary>
-        /// <para>Methods contained in the PinWorker class:</para>
-        /// <para>Use - Which pin to manipulate.</para>
-        /// <para>Calculate - Get values based on data received and convert to specified data.</para>
-        /// <para>ListenDigitalRead - Get all occurences from digital input pin types.</para>
-        /// <para>ListenAnalogRead - Get all occurences from analog input pin types.</para>
-        /// </summary>
-        public void Help() {}
-        #endregion
 
         private bool status;
 
@@ -34,17 +24,6 @@ namespace ArduinoWorker
 
         public PinWorker(IFirmataProtocol connection) {this.connection = connection;}
 
-        /// <summary>
-        /// Reference:
-        /// <para>Pin: the number of pin to target.</para>
-        /// <para>Type: The mode of pin - digitalWrite, digitalRead, analogWrite, analogRead</para>
-        /// PinWorker.Mode.[type] - Temperature or Distance
-        /// <para>Status: The state of pin</para>
-        /// 1 for ON(Enable), 0 for OFF(Disable)
-        /// </summary>
-        /// <param name="pin"></param>
-        /// <param name="type"></param>
-        /// <param name="state"></param>
         public void Use (int pin, Mode type, int state) 
         {
             switch (type) {
@@ -157,6 +136,8 @@ namespace ArduinoWorker
         }
 
 
+        #region Experimental
+        //This is entirely for experimental purpose, due to the problem whereby it is not receiving anything (I don't know why)
         private void ListenDigitalRead(object sender, FirmataEventArgs<DigitalPortState> args)
         {
             foreach (int i in ReportingDigitalPins)
@@ -179,6 +160,7 @@ namespace ArduinoWorker
                 pinValue = state.Value;
             }
         }
+        #endregion
     }
 }
 
