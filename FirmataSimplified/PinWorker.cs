@@ -7,7 +7,6 @@ namespace ArduinoWorker
 {
     public class PinWorker
     {
-
         private bool status;
 
         private List<int> ReportingDigitalPins = new List<int>();
@@ -26,6 +25,8 @@ namespace ArduinoWorker
 
         public void Use (int pin, Mode type, int state) 
         {
+            connection.MessageReceived += ListenFeedback;
+
             switch (type) {
                 case Mode.digitalWrite:
                     switch (state)
@@ -137,28 +138,21 @@ namespace ArduinoWorker
 
 
         #region Experimental
-        //This is entirely for experimental purpose, due to the problem whereby it is not receiving anything (I don't know why)
+        
         private void ListenDigitalRead(object sender, FirmataEventArgs<DigitalPortState> args)
         {
-            foreach (int i in ReportingDigitalPins)
-            {
-                PinState state = connection.GetPinState(i);
-                pin = state.PinNumber;
-                mode = state.Mode;
-                pinValue = state.Value;
-            }
-
+            MonoBehaviour.print(args.Value);
         }
 
         private void ListenAnalogRead(object sender, FirmataEventArgs<AnalogState> args)
         {
-            foreach (int i in ReportingAnalogPins)
-            {
-                PinState state = connection.GetPinState(i);
-                pin = state.PinNumber;
-                mode = state.Mode;
-                pinValue = state.Value;
-            }
+            MonoBehaviour.print(args.Value);
+        }
+
+        private void ListenFeedback(object sender, FirmataMessageEventArgs eventArgs)
+        {
+            MonoBehaviour.print(eventArgs.Value);
+
         }
         #endregion
     }
