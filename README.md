@@ -2,8 +2,9 @@
 Arduino Application Programming Interface. Property of Tecsen Technologies.
 
 # Contents
--**SimplifiedFirmata** - Currently being maintained.
--**Firmament** - Later project to be made. Upon development of this project the SimplifiedFirmata will be discontinued. 
+**SimplifiedFirmata** - Currently being maintained.
+
+**Firmament** - Later project to be made. Upon development of this project the SimplifiedFirmata will be discontinued. 
 
 Documentations of each project are in their respective folders.
 
