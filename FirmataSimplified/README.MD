@@ -45,7 +45,7 @@ public class Example : MonoBehaviour {
     }
 ```
 
-# Syntaxes according to present available methods to use in the ConnectionHandler class:
+Syntaxes according to present available methods to use in the ConnectionHandler class:
 
 ```C#
 IFirmataProtocol EstablishConnection(string port) 
