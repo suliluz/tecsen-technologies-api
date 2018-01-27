@@ -76,35 +76,35 @@ How to use:
 ```C#
 public class Example : MonoBehaviour {
 
-    Coroutine co; //Specify the variable to hold the coroutine
-	
-	public string port;
-    PinWorker worker;
-    IFirmataProtocol protocol;
-	
-	void Awake()
-    {
-		ConnectionHandler handler = new ConnectionHandler(); //Declare the ConnectionHandler class
-        handler.GetAvailablePorts();    //Specify ports available
-        protocol = handler.EstablishConnection(port);   //Start the connection based on the port with fixed baud rate of 9600
-        worker = new PinWorker(protocol);   //Pass the connected port into PinWorker class
-    }
-	
-	void Start() 
+Coroutine co; //Specify the variable to hold the coroutine
+
+public string port;
+PinWorker worker;
+IFirmataProtocol protocol;
+
+void Awake()
+{
+	ConnectionHandler handler = new ConnectionHandler(); //Declare the ConnectionHandler class
+	handler.GetAvailablePorts();    //Specify ports available
+	protocol = handler.EstablishConnection(port);   //Start the connection based on the port with fixed baud rate of 9600
+	worker = new PinWorker(protocol);   //Pass the connected port into PinWorker class
+}
+
+void Start() 
+{
+	//Runs the coroutine if everything is ready (Awake comes first)
+	co = StartCoroutine(worker.UseDelay(5, PinWorker.Mode.digitalWrite, 1, 5, PinWorker.Mode.digitalWrite, 0, 1.0f));
+}
+
+void Update()
+{
+	// When space is clicked stops the coroutine
+	if(Input.GetKeyDown(KeyCode.Space)) 
 	{
-		//Runs the coroutine if everything is ready (Awake comes first)
-        co = StartCoroutine(worker.UseDelay(5, PinWorker.Mode.digitalWrite, 1, 5, PinWorker.Mode.digitalWrite, 0, 1.0f));
+	StopCoroutine(co);
+	worker.Use(5, PinWorker.Mode.digitalWrite, 0);	//Keeps the LED off
 	}
-	
-	void Update()
-    {
-		// When space is clicked stops the coroutine
-        if(Input.GetKeyDown(KeyCode.Space)) 
-		{
-			StopCoroutine(co);
-			worker.Use(5, PinWorker.Mode.digitalWrite, 0);	//Keeps the LED off
-		}
-    }
+}
 ```
 
 UseDelay function would normally be used for looping in specified intervals
@@ -151,6 +151,6 @@ IEnumerator UseTimer(int pin1, Mode pin1_type, int pin1_state, int pin2, Mode pi
 //float duration - The time, in seconds when the second command will be executed.
 
 //Example:
-worker.UseDelay(5, PinWorker.Mode.digitalWrite, 1, 5, PinWorker.Mode.digitalWrite, 0, 30.0f);
+worker.UseTimer(5, PinWorker.Mode.digitalWrite, 1, 5, PinWorker.Mode.digitalWrite, 0, 30.0f);
 //This will shut the LED in pin 5 after 30 seconds 
 ```
