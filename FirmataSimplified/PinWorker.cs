@@ -17,7 +17,6 @@ namespace ArduinoWorker
         private int pin;
 
         public enum Mode {digitalWrite, digitalRead, analogRead, analogWrite}
-        public enum Measurement {Temperature, Distance}
 
         private IFirmataProtocol connection;
 
@@ -120,22 +119,6 @@ namespace ArduinoWorker
             this.Use(pin2, pin2_type, pin2_state);
             yield return null;
         }
-
-        public double Calculate (int pin, Measurement type)
-        {
-           PinState val = connection.GetPinState(pin);
-           double input = val.Value;
-           switch(type)
-            {
-                case Measurement.Temperature:
-                    return input;
-                case Measurement.Distance:
-                    return input;
-                default:
-                    throw new System.ArgumentException();
-            }
-        }
-
 
         #region Experimental
         
