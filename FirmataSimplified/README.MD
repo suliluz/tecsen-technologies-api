@@ -154,3 +154,14 @@ IEnumerator UseTimer(int pin1, Mode pin1_type, int pin1_state, int pin2, Mode pi
 worker.UseTimer(5, PinWorker.Mode.digitalWrite, 1, 5, PinWorker.Mode.digitalWrite, 0, 30.0f);
 //This will shut the LED in pin 5 after 30 seconds 
 ```
+# For the Arduino
+The firmata sketch can be found in the ArduinoFirmware folder.
+
+The Firmata sketch for Arduino can be customized [here](http://firmatabuilder.com/)
+
+1. Go to the Arduino IDE, Sketch > Include Library > Manage Libraries.
+- Install ConfigurableFirmata
+- Install Encoder
+
+2. Get FirmataEncoder [here](https://github.com/firmata/FirmataEncoder/archive/master.zip)
+- In the arduino IDE, Sketch > Include Library >  Add .ZIP library, then choose the zip file that was downloaded
