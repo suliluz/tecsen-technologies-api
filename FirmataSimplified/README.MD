@@ -1,10 +1,10 @@
-##Documentation of the SimplifiedFirmata API.##
+## Documentation of the SimplifiedFirmata API.
 
-###Introduction
+### Introduction
 This API is a simplified version of the SolidSoils .NET API for Arduino Firmata. The Firmata protocol is a port manipulation API specifically for microcontrollers such as Arduino.
 The purpose to to facililate the connection to the microcontroller and directly manipulate it from the client. It is currently targeted for Unity.
 
-###How to use
+### How to use
 
 
 ***Please read!***
@@ -45,7 +45,7 @@ public class Example : MonoBehaviour {
     }
 ```
 
-#Syntaxes according to present available methods to use in the ConnectionHandler class:
+# Syntaxes according to present available methods to use in the ConnectionHandler class:
 
 ```C#
 IFirmataProtocol EstablishConnection(string port) 
@@ -68,7 +68,7 @@ worker.Use(8, PinWorker.Mode.digitalWrite, 1);
 // This makes pin 8 as a digitalWrite with a value of HIGH.
 ```
 
-##IEnumerators - is used alongside Coroutine and can be of the same pin
+## IEnumerators - is used alongside Coroutine and can be of the same pin
 
 
 How to use:
@@ -151,6 +151,6 @@ IEnumerator UseTimer(int pin1, Mode pin1_type, int pin1_state, int pin2, Mode pi
 //float duration - The time, in seconds when the second command will be executed.
 
 //Example:
-worker.UseDelay(5, PinWorker.Mode.digitalWrite, 1, 5, PinWorker.Mode.digitalWrite, 0, 1.0f);
-//This will blink the LED in pin 5 in every 1 second.
+worker.UseDelay(5, PinWorker.Mode.digitalWrite, 1, 5, PinWorker.Mode.digitalWrite, 0, 30.0f);
+//This will shut the LED in pin 5 after 30 seconds 
 ```
