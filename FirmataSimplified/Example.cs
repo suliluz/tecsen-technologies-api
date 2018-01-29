@@ -27,7 +27,7 @@ public class Example : MonoBehaviour {
     void Start()
     {
         //Runs the coroutine if everything is ready (Awake comes first)
-        co(StartCoroutine(worker.UseDelay(5, PinWorker.Mode.digitalWrite, 1, 5, PinWorker.Mode.digitalWrite, 0, 1.0f);))
+        co(StartCoroutine(worker.UseDelay(5, PinWorker.Mode.digitalWrite, 1, 5, PinWorker.Mode.digitalWrite, 0, 1.0f)));
     }
 
     // Use this for initialization
