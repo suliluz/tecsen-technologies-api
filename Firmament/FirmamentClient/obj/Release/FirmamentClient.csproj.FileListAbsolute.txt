@@ -1,0 +1,4 @@
+D:\Projects\Firmament\FirmamentClient\bin\Release\FirmamentClient.dll
+D:\Projects\Firmament\FirmamentClient\bin\Release\FirmamentClient.pdb
+D:\Projects\Firmament\FirmamentClient\obj\Release\FirmamentClient.dll
+D:\Projects\Firmament\FirmamentClient\obj\Release\FirmamentClient.pdb

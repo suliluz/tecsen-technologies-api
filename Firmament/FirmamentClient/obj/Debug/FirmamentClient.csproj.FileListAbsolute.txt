@@ -1,0 +1,5 @@
+D:\Projects\Firmament\FirmamentClient\obj\Debug\FirmamentClient.csprojResolveAssemblyReference.cache
+D:\Projects\Firmament\FirmamentClient\bin\Debug\FirmamentClient.dll
+D:\Projects\Firmament\FirmamentClient\bin\Debug\FirmamentClient.pdb
+D:\Projects\Firmament\FirmamentClient\obj\Debug\FirmamentClient.dll
+D:\Projects\Firmament\FirmamentClient\obj\Debug\FirmamentClient.pdb
