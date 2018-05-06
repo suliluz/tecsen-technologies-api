@@ -7,15 +7,15 @@
 Finally, I got to finish building this API! However I do not have the components to test it out.
 
 Some To-Do List for clarification on what's to come:
--[x] Make a basic release
--[x] Build as a .dll file
--[ ] Add an example C# script
--[ ] Add a UART support
--[ ] Test out API
--[ ] Code Refactoring 
--[ ] More functionality on the Client (Listen DigitalRead on Changes)
--[ ] Organizing firmament_prototype (.ino file) to make byte commands more clear
--[ ] **Make a full and stable release**
+- [x] Make a basic release
+- [x] Build as a .dll file
+- [ ] Add an example C# script
+- [ ] Add a UART support
+- [ ] Test out API
+- [ ] Code Refactoring 
+- [ ] More functionality on the Client (Listen DigitalRead on Changes)
+- [ ] Organizing firmament_prototype (.ino file) to make byte commands more clear
+- [ ] **Make a full and stable release**
 
 ## How to use?
 
